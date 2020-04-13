@@ -1,6 +1,6 @@
-import React from 'react';
-import { ThemeProvider } from 'styled-components';
-import themes from '../styles/themes';
+import React from "react";
+import { ThemeProvider } from "styled-components";
+import themes from "../styles/themes";
 
 const Provider = ({ children }: { children: React.ReactElement }) => {
   // Disabled temporarily until we finalize dark mode colors.
