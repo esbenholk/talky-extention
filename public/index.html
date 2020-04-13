@@ -28,6 +28,18 @@
         text-rendering: optimizeSpeed;
       }
 
+      html {
+        box-sizing: border-box;
+        background-image: url("https://stayvirtual.s3.amazonaws.com/background.jpg");
+        background-repeat: repeat-x;
+        overflow-x: scroll;
+        overflow-y: hidden;
+      }
+
+      .create-room-form {
+        text-align: center;
+        width: 100%;
+      }
       code {
         font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
           monospace;
@@ -109,11 +121,6 @@
         max-width: 100%;
       }
 
-      html {
-        box-sizing: border-box;
-        background-image: url("https://stayvirtual.s3.amazonaws.com/background.png");
-      }
-
       *,
       *:before,
       *:after {
@@ -125,14 +132,13 @@
         padding: 0;
       }
 
-      .create-room-form {
-        text-align: center;
-      }
-
       .create-room-form-input-wrapper {
-        border: 1px #00b0e9 solid;
+        border: 10px #00b0e9 solid;
         padding: 10px;
         border-radius: 3px;
+        width: 500px;
+        height: 500px;
+        color: blue;
       }
 
       .create-room-form-input-wrapper:focus {
@@ -173,14 +179,19 @@
         }
         .create-room-form-input {
           width: 75%;
-        }
+        } */
       }
 
-      .container {
+       .container {
+        display: flex;
+        flex-wrap: nowrap;
         margin: 60px auto;
         width: 85%;
-        max-width: 800px;
+        max-width: 30vw;
         text-align: center;
+      }
+      #haircheck-header{
+          border: 8px blue solid;
       }
     </style>
   </head>
@@ -202,7 +213,7 @@
       <div class="container">
         <form class="create-room-form" method="GET" action="/">
           <span class="create-room-form-input-wrapper">
-            <span class="domain">room:/</span
+            <span class="domain">room:</span
             ><input
               type="text"
               name="room"
