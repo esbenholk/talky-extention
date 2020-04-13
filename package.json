@@ -50,7 +50,7 @@
     "eject": "react-scripts eject",
     "fix-lint": "tslint --fix --project .",
     "generate:emoji": "node generate-emoji-shortcodes.js",
-    "start": "webpack-dev-server --mode development --open --history-api-fallback",
+    "start": "webpack-dev-server --mode development --open --history-api-fallback --npm start",
     "test": "react-scripts test"
   }
 }

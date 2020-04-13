@@ -57,20 +57,6 @@ const run = ({
   if (CONFIG_URL.endsWith("YOUR_API_KEY")) {
     ReactDOM.render(
       <div className="container" style={{ textAlign: "left" }}>
-        <h1>Configuration Setup Needed:</h1>
-        <p>
-          Edit <code>public/index.html</code> to add your API key to the
-          configuration URL.
-        </p>
-        <p>
-          Visit <a href="https://simplewebrtc.com">simplewebrtc.com</a> to sign
-          up and get an API key.
-        </p>
-        <h2>How to set your API key:</h2>
-        <p>
-          See the meta tag section marked <code>IMPORTANT SETUP</code> in{" "}
-          <code>public/index.html</code>:
-        </p>
         <pre style={{ textAlign: "left" }}>
           {"<!-- IMPORTANT SETUP -->"}
           <br />
