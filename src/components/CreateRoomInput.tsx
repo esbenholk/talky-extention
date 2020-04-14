@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import randomRoomName from '../utils/randomRoomName';
+import React, { Component } from "react";
+import randomRoomName from "../utils/randomRoomName";
 
 interface Props {
   roomName: string;
@@ -36,7 +36,7 @@ export default class CreateRoomInput extends Component<Props, State> {
         onChange={this.handleChange}
         onBlur={this.handleBlur}
         onFocus={this.handleFocus}
-        placeholder="choose a room name"
+        placeholder="make a room name"
       />
     );
   }
@@ -50,7 +50,7 @@ export default class CreateRoomInput extends Component<Props, State> {
   };
 
   private handleBlur = () => {
-    if (this.props.roomName.trim() === '') {
+    if (this.props.roomName.trim() === "") {
       this.setState({
         isUserDefined: false
       });
@@ -60,7 +60,7 @@ export default class CreateRoomInput extends Component<Props, State> {
 
   private handleFocus = () => {
     if (!this.state.isUserDefined) {
-      this.props.onChange('');
+      this.props.onChange("");
     }
   };
 }

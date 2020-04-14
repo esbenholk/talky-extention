@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 interface Props {
   buckets: number;
@@ -12,10 +12,13 @@ interface ContainerProps {
 }
 
 const Container = styled.div(({ buckets }: ContainerProps) => ({
-  width: '25px',
-  display: 'grid',
+  width: "100px",
+  "@media (max-width: 420px)": {
+    width: "25px"
+  },
+  display: "grid",
   gridTemplateRows: `repeat(${buckets}, 1fr)`,
-  gridRowGap: '2px'
+  gridRowGap: "20px"
 }));
 
 interface BucketProps {
@@ -24,9 +27,15 @@ interface BucketProps {
 }
 
 const Bucket = styled.div(({ filled, speaking }: BucketProps) => ({
-  border: '1px solid white',
-  borderRadius: '4px',
-  backgroundColor: filled ? (speaking ? 'green' : 'white') : ''
+  // border: "2px solid white",
+  minHeight: "20px",
+  borderRadius: "10px",
+  // backgroundColor: filled ? (speaking ? "red" : "yellow") : "",
+  backgroundImage: filled
+    ? speaking
+      ? "url('https://i.pinimg.com/originals/31/b2/11/31b2113befba348aa559a4ef1068d8b2.png')"
+      : "red"
+    : ""
 }));
 
 const VolumeMeter: React.SFC<Props> = ({ buckets, volume, speaking }) => {

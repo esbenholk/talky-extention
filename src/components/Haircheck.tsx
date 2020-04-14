@@ -1,30 +1,30 @@
-import { LocalMediaList } from '@andyet/simplewebrtc';
-import MicIcon from 'material-icons-svg/components/baseline/Mic';
-import VideocamIcon from 'material-icons-svg/components/baseline/Videocam';
-import React from 'react';
-import styled, { css } from 'styled-components';
-import Placeholders from '../contexts/Placeholders';
-import { TalkyButton } from '../styles/button';
-import mq from '../styles/media-queries';
-import { colorToString } from '../utils/colorify';
-import { Error, Info } from './Alerts';
-import DeviceDropdown from './DeviceDropdown';
-import DeviceSelector from './DeviceSelector';
-import InputChecker from './InputChecker';
-import MediaPreview from './MediaPreview';
-import ShareControls from './ShareControls';
+import { LocalMediaList } from "@andyet/simplewebrtc";
+import MicIcon from "material-icons-svg/components/baseline/Mic";
+import VideocamIcon from "material-icons-svg/components/baseline/Videocam";
+import React from "react";
+import styled, { css } from "styled-components";
+import Placeholders from "../contexts/Placeholders";
+import { TalkyButton } from "../styles/button";
+import mq from "../styles/media-queries";
+import { colorToString } from "../utils/colorify";
+import { Error, Info } from "./Alerts";
+import DeviceDropdown from "./DeviceDropdown";
+import DeviceSelector from "./DeviceSelector";
+import InputChecker from "./InputChecker";
+import MediaPreview from "./MediaPreview";
+import ShareControls from "./ShareControls";
 
 const Container = styled.div({
-  display: 'grid',
+  display: "grid",
   gridTemplateAreas: `
     'header'
     'preview'
     'controls'
   `,
-  gridRowGap: '10px',
-  gridColumnGap: '10px',
+  gridRowGap: "10px",
+  gridColumnGap: "10px",
   [mq.SMALL_DESKTOP]: {
-    gridTemplateColumns: 'repeat(2, 1fr)',
+    gridTemplateColumns: "repeat(2, 1fr)",
     gridTemplateAreas: `
       'header header'
       'preview controls'
@@ -33,14 +33,17 @@ const Container = styled.div({
 });
 
 const Header = styled.div({
-  gridArea: 'header'
+  gridArea: "header"
 });
 
 const Controls = styled.div`
-  grid-area: controls;
+  z-index: 5;
   padding: 0 10px;
+  background-color: blue;
+  margin: 30px;
+  border-radius: 10px;
+  height: 400px;
   ${mq.SMALL_DESKTOP} {
-    padding: 0;
     width: 300px;
   }
   select {
@@ -71,15 +74,15 @@ const Controls = styled.div`
 `;
 
 const Preview = styled.div({
-  gridArea: 'preview',
-  display: 'flex',
-  alignItems: 'flex-end',
-  flexDirection: 'column'
+  gridArea: "preview",
+  display: "flex",
+  alignItems: "flex-end",
+  flexDirection: "column"
 });
 
 const PermissionButton = styled(TalkyButton)({
-  marginBottom: '5px',
-  width: '100%'
+  marginBottom: "5px",
+  width: "100%"
 });
 
 const Haircheck: React.SFC = () => (
@@ -107,8 +110,8 @@ const Haircheck: React.SFC = () => (
       <LocalMediaList
         screen={false}
         render={({ media }) => {
-          const audioStreams = media.filter(m => m.kind === 'audio');
-          const videoStreams = media.filter(m => m.kind === 'video');
+          const audioStreams = media.filter(m => m.kind === "audio");
+          const videoStreams = media.filter(m => m.kind === "video");
           const latestAudio = audioStreams[audioStreams.length - 1];
           const latestVideo = videoStreams[videoStreams.length - 1];
 

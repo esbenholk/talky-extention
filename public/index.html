@@ -14,6 +14,16 @@
 
     <title>STAY VIRTUAL</title>
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Bangers&display=swap");
+      #root {
+        width: 100%;
+        border: 2px blue solid;
+        background-image: url("https://stayvirtual.s3.amazonaws.com/background.jpg");
+        background-repeat: repeat-x;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        z-index: 0;
+      }
       body {
         margin: 0;
         padding: 0;
@@ -30,15 +40,16 @@
 
       html {
         box-sizing: border-box;
-        background-image: url("https://stayvirtual.s3.amazonaws.com/background.jpg");
-        background-repeat: repeat-x;
-        overflow-x: scroll;
-        overflow-y: hidden;
+        background-color: blue;
+
+        @media (max-width: 420px) : {
+          overflow-y: scroll;
+        } */
       }
 
       .create-room-form {
         text-align: center;
-        width: 100%;
+        width: 100vw;
       }
       code {
         font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -67,18 +78,8 @@
         overflow: hidden;
       }
 
-      button,
-      input {
-        color: inherit;
-        font: inherit;
-        margin: 0;
-      }
-
       button {
         overflow: visible;
-      }
-
-      button {
         text-transform: none;
       }
 
@@ -119,6 +120,7 @@
       img,
       video {
         max-width: 100%;
+        transform: rotateX(20deg);
       }
 
       *,
@@ -133,26 +135,37 @@
       }
 
       .create-room-form-input-wrapper {
-        border: 10px #00b0e9 solid;
+        border: 10px #ff00fa solid;
         padding: 10px;
-        border-radius: 3px;
+        border-radius: 10px;
         width: 500px;
         height: 500px;
         color: blue;
+        font-size: 40px;
+        font-family: "Bangers", cursive;
+      }
+      h2{
+          font-size: 40px;
+          font-family: "Bangers", cursive;
       }
 
-      .create-room-form-input-wrapper:focus {
-        border: 1px #ff00fa solid;
+      button,
+      input {
+        color: inherit;
+        font: inherit;
+        font-size: inherit;
+        margin: 0;
       }
 
       .domain {
-        color: #b7c0c3;
+        color: #ff00fa;
+        margin-right: 10px;
       }
 
       .create-room-form-input {
         border: none;
         background: none;
-        color: #00b0e9;
+        color: blue;
       }
 
       .create-room-form-input:focus {
@@ -163,42 +176,60 @@
         margin-left: 5px;
         padding: 8px 10px !important;
         display: inline-block;
+        font-size: 40px;
+        border-radius: 10px;
+        font-family: "Bangers", cursive;
       }
 
-      @media (max-width: 420px) {
-        .create-room-form-input-wrapper {
-          width: 100%;
-          display: block;
-          text-align: left;
-        }
-        .create-room-form-button {
-          width: 100%;
-          margin-top: 20px;
-          display: block;
-          margin-left: 0px;
-        }
-        .create-room-form-input {
-          width: 75%;
-        } */
+      .teletubby {
+        height: 1300px;
+        width: auto;
+        position: fixed;
+        left: 350px;
+        right: 0;
+        top: 10px;
+        border: 8px blue solid;
+        border-radius: 10px;
+
       }
 
-       .container {
+
+      .container {
         display: flex;
-        flex-wrap: nowrap;
-        margin: 60px auto;
-        width: 85%;
-        max-width: 30vw;
+        align-items: center;
+        justify-content: center;
         text-align: center;
+        position: absolute;
+        top: 40%;
       }
-      #haircheck-header{
-          border: 8px blue solid;
+      #haircheck-header {
+        border: 8px blue solid;
+      }
+
+      @media only screen and (max-width: 600px) {
+          .teletubby {
+              margin: 0;
+              height: 100vh;
+              width: 100vw
+              position: relative;
+              left: 50%;
+              transform: translateX(-50%);
+              top: 10px;
+              border: 0px red solid;
+              z-index: 1;
+          }
       }
     </style>
   </head>
 
   <body>
     <div id="root"></div>
+
     <template id="haircheck-header">
+      <h2 style="text-align: center">Ready to join a video chat?</h2>
+      <h2 style="text-align: center">Ready to join a video chat?</h2>
+      <h2 style="text-align: center">Ready to join a video chat?</h2>
+      <h2 style="text-align: center">Ready to join a video chat?</h2>
       <h2 style="text-align: center">Ready to join a video chat?</h2>
     </template>
     <template id="empty-peer-grid">
@@ -213,7 +244,7 @@
       <div class="container">
         <form class="create-room-form" method="GET" action="/">
           <span class="create-room-form-input-wrapper">
-            <span class="domain">room:</span
+            <span class="domain">room :</span
             ><input
               type="text"
               name="room"
